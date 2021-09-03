@@ -9,3 +9,5 @@ jobs:
   include:
     - stage: "sleep 109"
       script: echo $FOO
+    - stage: "echo BAR"
+      script: echo $BAR
