@@ -5,9 +5,11 @@ env:
   global:
     # FOO
     - secure: jeg7tnKW7/T7tFmmXobe/ssIijZB+DYmh7Cz9LhHrFvlElaff1tshslM5A/iuf9JjWLTo53co3JpHF/Jjw0kzjOaSO73hWkKZvf0SkaR+A4+vEo0TnxpbaBjPdu/4LOBNMCQ7mMVZ5XL9GpbYpOdOfhkKMbji0+/YqNDa3hk7ilaeLGoP6lEJ+htJ0DhyUR9oFBpr2RdJXaq7lXTHaZy0jYB429JOaf1PQ4YUe92iCLGVSTSYadrkZkK8ljzbhSfGlvmg3V7QgCBJ7ZcvtChieFwKEWxbFgp9QaF39X7C6Ly1srYeZe2Eo7NByxUoZNlQrS3TJzAF5sNtOD0TWFAO+rEn02MtzI4f/4eCy5blGo3izEMFx6Ben1YO8HMffPaOLWgq8jurEZDpOjQiCz7NprbeyFCaNIM8hf3RK77GFdWZszsLJURaA4LdzZn5hs0ROtHSjWV8LaGOhOK1mDRdZRlaTD90E+iKRtx6E18Ld5t4PAvTBgdwi6ivGJwY++65RpjZDOMBk8Ag2/G1pACqUqh1m/3EhPCllYhYp/TQpS8FYTXtgnnveUV/Od2Ssyx/s/JLGJ5NMUxozalYb5ztWl6hl3d8SV9HNSWcG0rLttvPS0sYKc206s5T9slDvoNaAMOHuJWaiDV7523fmHOY6r69gRZuEuD8oMYcuSQHT8=
+    # BAZ
+    - secure: RgMlvTMnSozTmldULyl7LMcIfC9JmpowCc8n6rmzgnAcQoVJ9l/NGLCWslinyTzzDIQjQaKCdfkK/ZGj2Wq0hSLmzyj2uDNPg9Jy1fAHGosvrFRf6cYA4gTxtO++WmnXlhbtOiAqNcw7FAtP6PNS+ezZ/oOiJDp4SOQVWalcn0u13/9fT/sIg6C6zeAwO/f9megSbK2MTEJXcQWLCaAaNgxex7TAhP6EvEj4Nu7LSsuaqNb7UaqvA1SoG8CrNcF9Vzp7VpRcVxyFS6Ws/XYQYSm+PKu12AqRHrGbZPVH4RH/Mh0fetAp6rzCsv2oz7V49HDhX5dOIXxBr1hM4kWwg6/LRX+ikrx4YkxdhWuWCbHqvuQuMI8feMVax2VfPkDJeJUQx7rKRHy82NhP9no12BcgciO1NKP8Q2GREBxkro8xc2eJyRgdsJ6x/CbeI1GbIsaEz+AH+s86XsvSqYIUmbMAa8Vbf7uciAIYs3cH78ORXHm3242Xf+cgamSUDZ2E6PszTT5aChWGIHDk/UkOcgdMEpdq2EvwVqaAhRTbXN1xy8ARaQwzP8VsvvlYv0OS7TjbqIqlrS9tgQPwdNJerz3Gcf1UFPVxgTwyv4an3RnRHBvjYNYj85Z/BP43kGB4qUXvJH4F0dGIswlBoorFYT2Cf6xy4Su8gi3e3uC95VY=
 jobs:
   include:
     - stage: "sleep 109"
       script: echo $FOO
-    - stage: "echo BAR"
-      script: echo $BAR
+    - stage: "echo BAZ"
+      script: echo $BAZ
