@@ -10,4 +10,6 @@ env:
 jobs:
   include:
     - stage: "echo FOO"
-      script: echo FOO
+      script: echo $FOO
+    - stage: "echo BAZ"
+      script: echo $BAZ
