@@ -1,15 +1,20 @@
 os: linux
+dist: xenial
 arch: amd64
-rvm: 2.6.3
-env:
-  global:
-    # FOO
-    - secure: eIut0fwRkFOKMkdxx1h3J6r6eoNsl19/ZSfQFz8NipLeLc59c8H6/OUtAl5/y7/Qa5I4pjc4ucm2ENHJw/NlPg5UbAZjIM935kOdeMYVFaItqa4q4dg2o/04/S++0HDgI/ryGnl81Ee0ibR0QcKU4FB2RJou63jn0QhaAcFwan29WEO+9i8VN9A3EpseS7EHoLOQS0bCm4Uy4vSbl+HSKvOSAsKW7QiVmLudiMWs583f+AViGL6IxHgWKS6wqVEWBwfodpGbyovGuccrE78imzoeswgf2lYlwNf4gS5r+4KRCYnJi+AEV4SoZvsyU6iFZnEayIPkX33X2D4a3eEtmg8sSU2SCJafm7dE4NHp8h9qvhcEPogFgRAWVQ7vPHxpe8VpPLywLfDtJpq21l30cWDeRdgy+r96KLVS2WO6aDDSmP+7KvlMU+0D6BUhaD/vMQdgHekHVITWEfk+6pPkAGtV/0hDj5VBikIrI7dMMCyJ7phwVXB4KRnKE4hn+RmYag4cjKle22diVfvzqsiSYrM2BO3y4OF9l78bCtwnw241WZSV2RdtxI7/O+l0nnKg2lwQQ/WIzkypL31vtuBGVN5DFf9P8dOu/HMCxDdsC9FGBp5Yzi0324s8+MU37N2/ZhpqJVmKSKKbm+SPobD7yRPwiPSW7KNmRTQk1owkC/o=
-    # SEC_ENV
-    - secure: Ag71roYyvdHQpHIWzbRMVcMcHg2UBVS4p7hML5XAFevJCoAKhzbUEibI/00eE8Dpdbcqq0IognoaIER4zMdyJTrmc5zQZu/E4h8ATCUJBLr1de0LtHgbLR1xJJEGf+GfSPMPtnnLgHjYMcWn3o/01GA09A1yfv1NOvNzbsPtfUbK4lvLEuwKmtRjaJekvJOfG/AFMGXd9qyTAwR4fROY2P2yjJrc5054TIFaPMgxhi9eRg4RC4Sys9zFHoJCOqDr96yNQs8txy7VLlL3GKea9c/3XCpjtRx2O/BFV1dZGmFXZlFIqq/XTkDDEiSiVL6sXqdl/xqaTyo9ngRmZsfBvfZ95i9+ork9R1VA0VrLKLrRh5jWv2WMWflMjAWij53LMNiLAcrFnVYSrZv0nxkMpsZOnZNLCIeJ69mkjkJC+yveCMZz8oz20mB4VLvnVD29fjEhlE78ki3vX5hWJm/hJ2ySWJrjQ1CsWT3qhFlfpf7QUNxdi4t3iR1PWAHL4lsh/r5pR+CyzhscJMHhS2Oti/Cj5Yz//+uDEfcMxTT6tgISf9rO4MwB1LEPLIm7hh5Tz0eRK8lpTQCMQFpPLYbm+T2hv6BU6BbJjtzXWYFDffwsyAn6zym1oArhHw5CNo5qPqHm9U5eTlYhWSMRe9AVMtsS52J5+swwPVg6gBJH97Q=
+language: generic
+
 jobs:
   include:
-    - stage: "echo FOO"
-      script: echo $FOO
-    - stage: "echo BAZ"
-      script: echo $SEC_ENV
+    - os: linux
+      dist: focal
+      arch: amd64
+      if: env(super) IS NOT present
+      script:
+        - echo "Triggered var logic where env var was not set!"
+
+    - os: linux
+      dist: focal
+      arch: amd64
+      if: env(super) IS present
+      script:
+        - echo "Triggered var logic where env var was set!"
