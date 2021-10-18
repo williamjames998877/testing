@@ -1,13 +1,24 @@
-os: linux
-arch: amd64
-rvm: 2.6.3
-env:
-  global:
-    # SEC_ENV
-    secure: RqfIPK4wkFez8rqDFL/nqSIK0W1u9RIyDt/yyAfLN3PszAGCtDkKoRz0a4XZG8IiPp9g034xTMyD7vqxz2tLm6popF7V3aVssA6cTfj+Ag4HCjCUsBSQfQwRQ3yHLRAaj56CINSF0ZDfGdFp7fj6grumSG2ijE9eeZ5oerbu7cg/6hzMLEZY2U78MU7ofnD1BCwpH3tokWD+6VAZOsH+N+FyYlBeMEDUGeL5qBtRRf+Ydm6OidxkFyJreYx+XJbeVtQDUl4/RuRBldmXfRzHjo2kgfya9I26fvntITa2TfowqAIGd4WcQUGmnsorj8O9ZGNyvcoz25k1zfpGaVy8m5A78uqVLTyW2AGgfGb+zm9Kmt0tT/DXtWis5Jok14/HcYszscVWGzbNjAZURJUXbeTG3mGAv/H4e0Z6NS91BDx0M2VTJQkpOUpdUO9gDRP4y7CPqC0BTKpfGpnM2x0R8FFy7b96Ec7oHqysT3bFIIVTvtYQsofQ9BJs21twJzw8Fvh7qpAsWaS5kiXtq/K+RVOqwF/ZU1/bD0LH8xCUJciWELmO+RYtAm9h+ygpnAfbTOsvP3lrdy6zQ+qmeM5ArNBCzbAvPYgxIWJ6DzaotDdyc8hUzK9dO0mvj8AGVeQWNwScR4LpZ1tXPnZlCEGjINl4HGIPqp1g/K5+1DLbgqY=
 jobs:
   include:
-    - stage: "echo SEC_ENV"
-      script: echo $SEC_ENV
-
-
+    - os: osx
+      osx_image: xcode12.5
+      script: true
+      deploy:
+        provider: gcs
+        key_file: gcs-access.json
+        bucket: gcs-test-bucket-qasim
+        edge: true
+        on:
+          all_branches: true
+          
+    - os: linux
+      arch: amd64
+      dist: xenial
+      script: true
+      deploy:
+        provider: gcs
+        key_file: gcs-access.json
+        bucket: gcs-test-bucket-qasim
+        edge: true
+        on:
+          all_branches: true
